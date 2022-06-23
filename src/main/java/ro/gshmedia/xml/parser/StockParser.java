@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,10 @@ public class StockParser {
 
     private static final String FILENAME = "stock_new/stock1.xml";
 
-    public List<Stock> readStocks() {
+
+    //TODO incearca sa iti dai seama ce facem gresit la citirea din fisier
+    // tip: urmareste exmplul de unde am luat codul si vezi cum mai trebuie adaptat
+    public List<Stock> readStocks(InputStream file) {
 
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -29,11 +33,11 @@ public class StockParser {
 
             DocumentBuilder db = dbf.newDocumentBuilder();
 
-            Document doc = db.parse(new File(FILENAME));
+            Document doc = db.parse(file);
             doc.getDocumentElement().normalize();
 
-
-            // get <staff>
+            //TODO creaza cate o constanta de tipul String cu numele fiecarui element din fisierul XML pentru stocuri
+            // de exemplu: private static final String STOCKS = "stocks";
             NodeList list = doc.getElementsByTagName("stocks");
 
 

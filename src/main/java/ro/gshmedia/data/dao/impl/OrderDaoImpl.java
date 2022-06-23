@@ -9,7 +9,7 @@ import ro.gshmedia.data.model.Order;
 
 public class OrderDaoImpl implements OrderDao {
 
-    @PersistenceContext
+    @PersistenceContext()
     EntityManager entityManager;
 
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("ro.gshmedia.persistance");
